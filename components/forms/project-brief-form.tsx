@@ -111,18 +111,19 @@ export function ProjectBriefForm() {
 
  const fieldsToValidate: { [key in FormStep]: (keyof ProjectBriefFormType)[] } = {
   'client-info': ['clientName', 'clientEmail', 'clientPhone'],
-  'business-info': ['businessName', 'businessDescription'],
-  'objectives': ['mainObjective'],
-  'audience': ['mainClientsDescription', 'ageRange'],
-  'structure': ['requiredPages'],
+  'business-info': ['businessName', 'businessDescription', 'yearsInMarket', 'uniqueValueProposition'],
+  'objectives': ['mainObjective', 'secondaryObjectives'],
+  'audience': ['mainClientsDescription', 'ageRange', 'geographicLocation', 'problemSolved'],
+  'structure': ['requiredPages', 'hasContentWritten', 'hasHighQualityImages', 'hasVideos'],
   'features': ['requiredFeatures'],
-  'design': ['visualStyle', 'colorPreference'],
-  'technical': ['hasDomain', 'hasHosting'],
+  'design': ['visualStyle', 'colorPreference', 'visualContentPreference'],
+  'technical': ['hasDomain', 'hasHosting', 'canUpdateContent', 'needsTraining'],
   'seo': ['isGoogleImportant'],
-  'legal': [],
-  'budget': ['budgetRange'],
+  'legal': ['legalRequirements'],
+  'budget': ['launchDate', 'isFlexibleDate', 'budgetRange', 'needsMaintenance'],
   'summary': [],
 }
+
 
 
 
