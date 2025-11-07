@@ -1,36 +1,52 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🌐 Brief de Desarrollo Web
 
-## Getting Started
+Formulario profesional e interactivo para capturar los requisitos completos de proyectos web. Diseñado para recopilar información detallada de clientes sobre sus necesidades, objetivos y preferencias técnicas.
 
-First, run the development server:
+## ✨ Características
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- **12 Secciones Completas** - Información del cliente, negocio, objetivos, audiencia, estructura, funcionalidades, diseño, aspectos técnicos, SEO, legal, presupuesto y resumen
+- **Diseño Moderno** - Tema oscuro con efectos glow y gradientes tecnológicos
+- **Formulario Multi-Paso** - Navegación fluida con barra de progreso visual
+- **Validación Robusta** - Validación de tipos con TypeScript y Zod
+- **Integración Formspree** - Recepción automática de datos en email
+- **Presupuesto en Soles** - Opciones de presupuesto adaptadas a Perú
+- **Responsive Design** - Funciona perfectamente en móvil, tablet y desktop
+- **Animaciones Suaves** - Transiciones profesionales con Framer Motion
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🚀 Stack Tecnológico
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **Framework**: Next.js 16 (App Router)
+- **Lenguaje**: TypeScript
+- **Estilos**: Tailwind CSS + CSS personalizado
+- **Validación**: React Hook Form + Zod
+- **Animaciones**: Framer Motion
+- **Backend**: Formspree (recepción de formularios)
+- **Despliegue**: Vercel
+- **Runtime**: Node.js
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 📋 Secciones del Formulario
 
-## Learn More
+1. **Información de Contacto** - Nombre, email, teléfono, empresa
+2. **Información del Negocio** - Descripción, propuesta de valor, identidad de marca
+3. **Objetivos del Sitio** - Propósito principal, objetivos secundarios, sitio actual
+4. **Audiencia Objetivo** - Descripción de clientes, rango de edad, ubicación
+5. **Estructura y Contenido** - Páginas necesarias, material disponible
+6. **Funcionalidades** - Características técnicas requeridas
+7. **Diseño y Estética** - Estilos visuales, paleta de colores
+8. **Aspectos Técnicos** - Dominio, hosting, emails corporativos
+9. **SEO y Marketing** - Importancia de Google, herramientas necesarias
+10. **Requisitos Legales** - Documentos necesarios (GDPR, políticas, etc.)
+11. **Presupuesto y Timeline** - Rango de presupuesto (en Soles), fecha de lanzamiento
+12. **Resumen Final** - Revisión de toda la información
 
-To learn more about Next.js, take a look at the following resources:
+## 🛠️ Instalación
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Requisitos Previos
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- Node.js 18+
+- npm o yarn
+- Cuenta en Formspree
 
-## Deploy on Vercel
+### Pasos
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. **Clonar el repositorio**
