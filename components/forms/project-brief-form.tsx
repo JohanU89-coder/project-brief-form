@@ -48,7 +48,6 @@ export function ProjectBriefForm() {
   const [isSubmitted, setIsSubmitted] = useState(false)
   const [state, handleSubmit] = useFormspree('xblpnvvv')
 
-
   const currentStep = FORM_STEPS[currentStepIndex]
 
   const methods = useForm<ProjectBriefFormType>({
@@ -109,27 +108,87 @@ export function ProjectBriefForm() {
     },
   })
 
- const fieldsToValidate: { [key in FormStep]: (keyof ProjectBriefFormType)[] } = {
-  'client-info': ['clientName', 'clientEmail', 'clientPhone'],
-  'business-info': ['businessName', 'businessDescription', 'yearsInMarket', 'uniqueValueProposition'],
-  'objectives': ['mainObjective', 'secondaryObjectives'],
-  'audience': ['mainClientsDescription', 'ageRange', 'geographicLocation', 'problemSolved'],
-  'structure': ['requiredPages', 'hasContentWritten', 'hasHighQualityImages', 'hasVideos'],
-  'features': ['requiredFeatures'],
-  'design': ['visualStyle', 'colorPreference', 'visualContentPreference'],
-  'technical': ['hasDomain', 'hasHosting', 'canUpdateContent', 'needsTraining'],
-  'seo': ['isGoogleImportant'],
-  'legal': ['legalRequirements'],
-  'budget': ['launchDate', 'isFlexibleDate', 'budgetRange', 'needsMaintenance'],
-  'summary': [],
-}
-
-
-
+  const fieldsToValidate = {
+    'client-info': [
+      'clientName',
+      'clientEmail',
+      'clientPhone',
+      'clientCompany',
+    ],
+    'business-info': [
+      'businessName',
+      'businessDescription',
+      'yearsInMarket',
+      'uniqueValueProposition',
+      'logoFormats',
+      'hasLogoCorporateColors',
+      'corporateColors',
+      'hasBrandGuide',
+    ],
+    'objectives': [
+      'mainObjective',
+      'secondaryObjectives',
+      'hasCurrentWebsite',
+      'currentWebsiteUrl',
+      'currentWebsiteLikes',
+      'currentWebsiteDislikes',
+      'webReferences',
+    ],
+    'audience': [
+      'mainClientsDescription',
+      'ageRange',
+      'geographicLocation',
+      'geographicLocationCity',
+      'problemSolved',
+    ],
+    'structure': [
+      'requiredPages',
+      'hasContentWritten',
+      'hasHighQualityImages',
+      'hasVideos',
+    ],
+    'features': [
+      'requiredFeatures',
+      'requiredIntegrations',
+    ],
+    'design': [
+      'visualStyle',
+      'colorPreference',
+      'colorsToAvoid',
+      'visualContentPreference',
+    ],
+    'technical': [
+      'hasDomain',
+      'domainName',
+      'hasHosting',
+      'needsCorporateEmails',
+      'corporateEmailsCount',
+      'canUpdateContent',
+      'needsTraining',
+    ],
+    'seo': [
+      'isGoogleImportant',
+      'keywordsFocus',
+      'neededTools',
+    ],
+    'legal': [
+      'legalRequirements',
+    ],
+    'budget': [
+      'launchDate',
+      'isFlexibleDate',
+      'budgetRange',
+      'needsMaintenance',
+      'competitors',
+      'additionalComments',
+    ],
+    'summary': [],
+  } as const
 
   const canGoNext = () => {
-    const fields = fieldsToValidate[currentStep.id]
-    return fields.every((field) => !methods.formState.errors[field])
+    const fields = fieldsToValidate[currentStep.id as keyof typeof fieldsToValidate]
+    if (!fields) return true
+    return fields.every((field) => !methods.formState.errors[field as keyof typeof methods.formState.errors])
   }
 
   const handleNext = () => {
@@ -295,17 +354,28 @@ export function ProjectBriefForm() {
                   transition={{ duration: 0.3 }}
                 >
                   {currentStep.id === 'client-info' && <Section01Client />}
-                  {currentStep.id === 'business-info' && <Section02Business />}
-                  {currentStep.id === 'objectives' && <Section03Branding />}
-                  {currentStep.id === 'audience' && <Section04Objectives />}
-                  {currentStep.id === 'structure' && <Section05Audience />}
-                  {currentStep.id === 'features' && <Section06Structure />}
-                  {currentStep.id === 'design' && <Section07Features />}
-                  {currentStep.id === 'technical' && <Section08Design />}
-                  {currentStep.id === 'seo' && <Section09Technical />}
-                  {currentStep.id === 'legal' && <Section10SEO />}
-                  {currentStep.id === 'budget' && <Section11Legal />}
-                  {currentStep.id === 'summary' && <Section12Budget />}
+                  {currentStep.id === 'business-info' && (
+                    <>
+                      <Section02Business />
+                      <Section03Branding />
+                    </>
+                  )}
+                  {currentStep.id === 'objectives' && <Section04Objectives />}
+                  {currentStep.id === 'audience' && <Section05Audience />}
+                  {currentStep.id === 'structure' && <Section06Structure />}
+                  {currentStep.id === 'features' && <Section07Features />}
+                  {currentStep.id === 'design' && <Section08Design />}
+                  {currentStep.id === 'technical' && <Section09Technical />}
+                  {currentStep.id === 'seo' && <Section10SEO />}
+                  {currentStep.id === 'legal' && <Section11Legal />}
+                  {currentStep.id === 'budget' && <Section12Budget />}
+                  {currentStep.id === 'summary' && (
+                    <div className="space-y-6">
+                      <p className="text-foreground/80">
+                        Revisa toda la información antes de enviar el formulario.
+                      </p>
+                    </div>
+                  )}
                 </motion.div>
               </AnimatePresence>
 
